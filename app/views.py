@@ -31,23 +31,10 @@ def manageRequest():
 
     # DEBUG flash('the book selected is: %s' % inputFromBook)
 
-    if inputFromBook == "mobydick":
-        userText, typeText = getSampleText(1)
-        language = "EN"
-
-    elif inputFromBook == "marinetti":
-        userText, typeText = getSampleText(2)
-        language = "IT"
-
-    elif inputFromBook == "urteil":
-        userText, typeText = getSampleText(3)
-        language = "DE"
-
-    else:
-        if theInputForm.validate_on_submit():
-            userText = theInputForm.inputText.data
-            typeText = "Your own text"
-            language = request.form['lang'] # which language?
+    if theInputForm.validate_on_submit():
+        userText = theInputForm.inputText.data
+        typeText = "Your own text"
+        language = request.form['lang'] # which language?
 
     # DEBUG flash('read:  %s' % typeText)
     
@@ -100,9 +87,15 @@ def manageRequest():
                            uniqueTokens = uniqueTokensText,
                            commonWords = myText.getMostCommonWords(10))
 
+    elif 'SA'  in request.form.values():
+         return render_template('future.html',
+                           title='Sentiment Analysis Not yet implemented')
+
+
+#
     else:
         return render_template('future.html',
-                           title='Not yet implemented')
+                           title='Not  implemented')
 
 
 

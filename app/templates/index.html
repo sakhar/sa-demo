@@ -1,43 +1,43 @@
 <!-- extend from base layout -->
 {% extends "base.html" %}
-
 {% block content %}
 
-<h1>Hello, welcome to NLP3o!</h1>
-<p style = "margin-bottom:100px">
-  NLP3o is your advanced Natural Language Processor<br /><br />
-  This is a suite of one-task tools working with text data.<br />
-  These simple tools are for educational purpose</p>
+
+<div id='mydiv' style = "position:relative; left:-400px; top:10px;">
+  <img src="{{url_for('static', filename='bb.png')}}" ,
+  width="500" ,height="600"
+  
+  />
+</div>
+<h1>مرحبا بكم في صفحة المحلل الآلي للغة العربية</h1>
+<p style = "margin-bottom:50px">
+  نحن نهدف في هذاالعمل بتحليل الكلمات و الجمل باللغة العربية<br />
+  </p>
 
   <form action="" method="post" name="inputText">
-    <fieldset>
-      <legend>Input text</legend>
-      {{ form.hidden_tag() }}
-      <div style = font-size:20px; font-weight:bold; margin-left:150px;>
+    <fieldset  style = "margin-left: 350px; width:50px;left:400px; top:10px; bottom: -500px;" >
+      <legend>النص المدخل</legend>
+      <div style = font-size:16px; font-weight:bold; margin-left:50px;>
 
         <p>
-          You can enter your text here:<br />
-          {{ form.inputText(size=400, placeholder="Write something ...") }}<br />
+          :الرجاء إدخال النص المراد تحليله <br />
+          {{ form.inputText(size=400, placeholder="أكتب هنا......") }}<br />
 
           {% for error in form.inputText.errors %}
             <span style="color: red;">[{{ error }}]</span>
           {% endfor %}<br />
         </p>
-        <p>Or you can use a sample text from these books:<br /><br />
-          <input type="radio" name="book" value="mobydick">Moby Dick by H. Melville<br />
-          <input type="radio" name="book" value="marinetti">L'aeroplano del Papa by F.T. Marinetti<br />
-          <input type="radio" name="book" value="urteil">Das Urteil by F. Kafka<br />
+       <br />
+      
           <input type="radio" name="book" value="none" checked="checked">None. User text - Language:
             <input type="radio" name="lang" value="EN" checked="checked">English
-            <input type="radio" name="lang" value="DE">German
-            <input type="radio" name="lang" value="IT">Italian</p>
+           </p>
     </fieldset>
-    <fieldset>
-      <legend>Settings</legend>
+    <fieldset  >
+      <legend>الإعدادات</legend>
 
         <p>{{ form.ignoreCase }} ignore case
 
-        <a href="#explainCase">   [What is this?]</a>
         <div id="explainCase" class="modalDialog">
           <div>
             <a href="#close" title="Close" class="close">X</a>
@@ -48,7 +48,6 @@
         </div> </p>
 
         <p>{{ form.ignoreStopWords }} ignore stopwords (articles, conjunctions, ...)
-          <a href="#explainStopwords">   [What is this?]</a>
           <div id="explainStopwords" class="modalDialog">
             <div>
               <a href="#close" title="Close" class="close">X</a>
@@ -69,8 +68,8 @@
           <input type="checkbox" name="engine"  checked>
           <span class="slider"></span>
         </label>
-        &nbsp;Lemmas
-        <a href="#explainSwitch">    [What is this?]</a>
+        
+        <a hrekjjk jka>
         
         <div id="explainSwitch" class="modalDialog">
           <div>
@@ -86,14 +85,13 @@
         </div></p>
     </fieldset>
 
-    <fieldset>
-      <legend>Tools available</legend>
+    <fieldset  style = "margin-left: 250px; width:700px;left:400px; top:10px; bottom: -500px;">
+      <legend>الأدوات المتوفرة</legend>
         <nav>
           <button class="big-btn" name="action-button" type="submit" value="TA">Basic Analysis</button>
-          <button class="big-btn-dis">Advanced Analysis</button>
-          <button class="big-btn-dis">Sentiment Analysis</button>
-          <button class="big-btn-dis">Summary</button>
-          <button class="big-btn-dis">Generate Text</button>
+          <button class="big-btn" name="action-button" type="submit" value="SA">Sentiments Analysis</button>
+          <button class="big-btn" name="action-button" type="submit" value="SA" >Dialect Model</button>
+         
         </nav>
 
       </div>

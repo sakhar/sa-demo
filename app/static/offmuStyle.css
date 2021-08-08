@@ -1,62 +1,71 @@
-body            { font-family: sans-serif; background: #eee; }
-h1              { color: #fb3; border-bottom: 2px solid #eee}
+body            { font-family: sans-serif; background: rgba(238, 238, 238, 0.274);
+  text-align: center; }
+h1              { color: rgba(8, 155, 253, 0.911);
+   border-bottom: 2px solid rgba(238, 238, 238, 0.493);
+   text-align: center;}
 
 textarea {
   width: 500px;
   height: 250px;
+  text-align: center;
 }
 
 
 
 .btn-get{
     background-color: #FB3; /* Green */
-    color: white;
+    color: rgba(8, 155, 253, 0.911);
     text-align: center;
     font-size: 16px;
     display: inline-block;
-    padding: 15px 32px;
+    padding: 30px 32px;
     border: none;
 }
 
 .big-btn {
-  background-color: #4CAF50;
+  background-color:rgba(0, 132, 219, 0.904);
   color: white;
   font: bold;
   font-size: 16px;
-  padding: 60px 40px 60px 40px;
+  padding: 40px 40px 40px 40px;
   border: none;
+  text-align: center;
 }
 
 .big-btn-dis {
   background-color: #666; /* grey */
   color: white;
-  font: bold 36px;
+  font: bold 16px;
   background-color: #666; /* grey */
   color: #FFF; /*white */
   padding: 60px 40px 60px 40px;
   border: none;
+  text-align: center;
 }
 
 .stats {
   font: bold;
-  font-size: 120%;
+  font-size: 16px;
   color: #fb3; /* orange */
+  text-align: center;
 }
 
 
 .chart rect {
   fill: steelblue;
   fill-opacity: 0.9;
+  text-align: center;
 }
 
 .chart text {
-  fill: blue;
+  fill: rgba(8, 176, 253, 0.575);;
   font: 12px sans-serif;
   text-anchor: end;
+  text-align: center;
 }
 
 text.value {
-    font-size: 120%;
+    font-size: 16px;
     fill: white;
 }
 
@@ -64,11 +73,11 @@ text.value {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     position: absolute;
     display: none;
-    width: auto;
+    width: 100px;
     height: auto;
     background: none repeat scroll 0 0 white;
     border: 0 none;
-    border-radius: 8px 8px 8px 8px;
+    border-radius: 5px 5px 5px 5px;
     box-shadow: -3px 3px 15px #888888;
     color: black;
     font: 12px sans-serif;
@@ -76,11 +85,11 @@ text.value {
     text-align: center;
 }
 
-/* The switch - the box around the slider */
+/* The switch - the box around the slider المربع الاصفر  */
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
+  width: 30px;
   height: 34px;
 }
 
@@ -89,7 +98,7 @@ text.value {
 
 /* The slider */
 .slider {
-  position: absolute;
+ /* position: absolute;*/
   cursor: pointer;
   top: 0;
   left: 0;
@@ -103,7 +112,7 @@ text.value {
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
+  height: 6px;
   width: 26px;
   left: 4px;
   bottom: 4px;
@@ -148,11 +157,11 @@ input:checked + .slider:before {
     }
 
     .modalDialog > div {
-        width: 400px;
+        width: 300px;
         position: relative;
         margin: 10% auto;
         padding: 5px 20px 13px 20px;
-        border-radius: 10px;
+        border-radius: 100px;
         background: #fff;
         background: -moz-linear-gradient(#fff, #999);
         background: -webkit-linear-gradient(#fff, #999);
