@@ -95,7 +95,7 @@ def manageRequest():
 
     elif 'DA'  in request.form.values():
          davalue = [('jed',0.58),('ruh',0.31)]
-         
+         myText = TextAnalyser(userText, language) # new object
          return render_template('dialect.html',
                            title='Dialect Model',
                            inputTypeText = typeText,
@@ -104,7 +104,7 @@ def manageRequest():
                            numSentences = 2,
                            numTokens = 3,
                            uniqueTokens = 2,
-                           commonWords = davalue
+                           commonWords = myText.getMostCommonCities()
          )
 #
     else:

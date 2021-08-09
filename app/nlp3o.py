@@ -28,21 +28,8 @@ class camel:
         self.sentences = []
         self.language = language
         self.stopWords = set(readStopwords(language))
-     def getMostCommonCities(self, n=10):
-        """ get the n most common words in the text;
-        n is the optional paramenter"""
-        from collections import Counter
-        did = DialectIdentifier.pretrained()
 
-        sentence = 'فيه ايه؟'
-        sentence = 'انت عاوز مني ايه؟'
-        predictions = did.predict([sentence])
-        sorted_cities = sorted(predictions[0].scores.items(),key=lambda x: x[1],reverse=True)
-#print(sorted_cities)
-        df = pd.DataFrame(sorted_cities,columns=['City','Score']).set_index('City')
-        plt = df.plot.bar()
-        wordsCount = Counter(self.tokens) # count the occurrences
-        return wordsCount
+    
 
 
 class TextAnalyser:
@@ -60,7 +47,15 @@ class TextAnalyser:
         self.stopWords = set(readStopwords(language))
         
 
-        
+    def getMostCommonCities(self, n=10):
+        """ get the n most common words in the text;
+        n is the optional paramenter"""
+        from collections import Counter
+        did = DialectIdentifier.pretrained()
+        predictions = did.predict([self.text])
+        sorted_cities = sorted(predictions[0].scores.items(),key=lambda x: x[1],reverse=True)
+        return sorted_cities[:n]
+
     def length(self):
         """ return length of text in chars """
         return len(self.text)
