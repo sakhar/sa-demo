@@ -13,15 +13,44 @@ Created on Tue Apr 25 15:10:58 2017
 """
 from .inputhandler import readStopwords
 import nltk
+import pandas as pd
+from camel_tools.dialectid import DialectIdentifier
+#2:36
+# init the model
+#camel
+
 from nltk.stem import WordNetLemmatizer
 #add camel tools
+class camel:
+     def __init__(self, inputText, language = "EN"):
+        self.text = inputText
+        self.tokens = []
+        self.sentences = []
+        self.language = language
+        self.stopWords = set(readStopwords(language))
+     def getMostCommonCities(self, n=10):
+        """ get the n most common words in the text;
+        n is the optional paramenter"""
+        from collections import Counter
+        did = DialectIdentifier.pretrained()
+
+        sentence = 'فيه ايه؟'
+        sentence = 'انت عاوز مني ايه؟'
+        predictions = did.predict([sentence])
+        sorted_cities = sorted(predictions[0].scores.items(),key=lambda x: x[1],reverse=True)
+#print(sorted_cities)
+        df = pd.DataFrame(sorted_cities,columns=['City','Score']).set_index('City')
+        plt = df.plot.bar()
+        wordsCount = Counter(self.tokens) # count the occurrences
+        return wordsCount
+
 
 class TextAnalyser:
         # stemming values
     NO_STEMMING = 0
     STEM = 1
     LEMMA = 2
-    
+
     'Text object, with analysis methods' 
     def __init__(self, inputText, language = "EN"):
         self.text = inputText

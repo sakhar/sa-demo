@@ -31,7 +31,8 @@ def manageRequest():
 
     # DEBUG flash('the book selected is: %s' % inputFromBook)
 
-    if theInputForm.validate_on_submit():
+    if True:
+  #  theInputForm.validate_on_submit():
         userText = theInputForm.inputText.data
         typeText = "Your own text"
         language = request.form['lang'] # which language?
@@ -77,6 +78,7 @@ def manageRequest():
             uniqueTokensText = myText.uniqueTokens()
 
               # render the html page
+        print (myText.getMostCommonWords(10))
         return render_template('results.html',
                            title='Text Analysis',
                            inputTypeText = typeText,
@@ -91,7 +93,19 @@ def manageRequest():
          return render_template('future.html',
                            title='Sentiment Analysis Not yet implemented')
 
-
+    elif 'DA'  in request.form.values():
+         davalue = [('jed',0.58),('ruh',0.31)]
+         
+         return render_template('dialect.html',
+                           title='Dialect Model',
+                           inputTypeText = typeText,
+                           originalText = 'fragment',
+                           numChars = 100,
+                           numSentences = 2,
+                           numTokens = 3,
+                           uniqueTokens = 2,
+                           commonWords = davalue
+         )
 #
     else:
         return render_template('future.html',
