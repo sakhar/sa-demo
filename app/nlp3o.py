@@ -53,11 +53,28 @@ class TextAnalyser:
         from collections import Counter
         did = DialectIdentifier.pretrained()
         predictions = did.predict([self.text],output='city')
-      #  number = int(key=lambda x: x[1])
-       # text = "{:.2f}".format(number)
         sorted_cities = sorted(predictions[0].scores.items(),key=lambda x: x[1],reverse=True)
-        print(key=lambda x: x[1])
+        
         return sorted_cities[:n]
+    def getMostCommonRegion(self, n=10):
+        """ get the n most common words in the text;
+        n is the optional paramenter"""
+        from collections import Counter
+        did = DialectIdentifier.pretrained()
+        predictions = did.predict([self.text],output='region')
+        sorted_region = sorted(predictions[0].scores.items(),key=lambda x: x[1],reverse=True)
+        
+        return sorted_region[:n]
+
+    def getMostCommonCountry(self, n=5):
+        """ get the n most common words in the text;
+        n is the optional paramenter"""
+        from collections import Counter
+        did = DialectIdentifier.pretrained()
+        predictions = did.predict([self.text],output='country')
+        sorted_country = sorted(predictions[0].scores.items(),key=lambda x: x[1],reverse=True)
+        
+        return sorted_country[:n]
 
     def length(self):
         """ return length of text in chars """
