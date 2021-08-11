@@ -52,20 +52,13 @@ def manageRequest():
 
 
     #flash('read:  %s' % stemmingEnabled)
-
-
-          # Which kind of user action ?
-    if 'TA'  in request.form.values():
-            # GO Text Analysis
-
-               # start analysing the text
+# start analysing the text
         myText = TextAnalyser(userText, language) # new object
 
         myText.preprocessText(lowercase = theInputForm.ignoreCase.data,
                               removeStopWords = theInputForm.ignoreStopWords.data,
                               stemming = stemmingType)
-
-               # display all user text if short otherwise the first fragment of it
+        # display all user text if short otherwise the first fragment of it
         if len(userText) > 99:
             fragment = userText[:99] + " ..."
         else:
@@ -76,6 +69,9 @@ def manageRequest():
             uniqueTokensText = 1
         else:
             uniqueTokensText = myText.uniqueTokens()
+          # Which kind of user action ?
+    if 'TA'  in request.form.values():
+            # GO Text Analysis
 
               # render the html page
         print (myText.getMostCommonWords(10))
@@ -99,11 +95,11 @@ def manageRequest():
          return render_template('dialect.html',
                            title='Dialect Model',
                            inputTypeText = typeText,
-                           originalText = 'fragment',
-                           numChars = 100,
-                           numSentences = 2,
-                           numTokens = 3,
-                           uniqueTokens = 2,
+                           originalText = fragment,
+                           numChars = myText.length(),
+                           numSentences = myText.getSentences(),
+                           numTokens = myText.getTokens(),
+                           uniqueTokens = uniqueTokensText,
                            commonWords = myText.getMostCommonCities()
          )
 #
