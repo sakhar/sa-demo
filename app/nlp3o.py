@@ -53,7 +53,9 @@ class TextAnalyser:
         from collections import Counter
         did = DialectIdentifier.pretrained()
         predictions = did.predict([self.text])
-        sorted_cities = sorted(predictions[0].scores.items(),key=lambda x: x[1],reverse=True)
+        text = "{:.2f}".format(predictions[0].scores.items())
+        sorted_cities = sorted(text,key=lambda x: x[1],reverse=True)
+        
         return sorted_cities[:n]
 
     def length(self):
