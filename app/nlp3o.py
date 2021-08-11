@@ -47,7 +47,7 @@ class TextAnalyser:
         self.stopWords = set(readStopwords(language))
         
 
-    def getMostCommonCities(self, n=10):
+    def getMostCommonCities(self, n=5):
         """ get the n most common words in the text;
         n is the optional paramenter"""
         from collections import Counter
@@ -56,7 +56,7 @@ class TextAnalyser:
         sorted_cities = sorted(predictions[0].scores.items(),key=lambda x: x[1],reverse=True)
         
         return sorted_cities[:n]
-    def getMostCommonRegion(self, n=10):
+    def getMostCommonRegion(self, n=5):
         """ get the n most common words in the text;
         n is the optional paramenter"""
         from collections import Counter
