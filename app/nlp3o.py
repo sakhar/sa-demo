@@ -52,9 +52,8 @@ class TextAnalyser:
         n is the optional paramenter"""
         from collections import Counter
         did = DialectIdentifier.pretrained()
-        predictions = did.predict([self.text])
-        text = "{:.2f}".format(key=lambda x: x[1])
-        sorted_cities = sorted(predictions[0].scores.items(),text,reverse=True)
+        predictions = did.predict([self.text],output='city')
+        sorted_cities = sorted(predictions[0].scores.items(),key=lambda x: x[1],reverse=True)
         
         return sorted_cities[:n]
 
