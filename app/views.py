@@ -102,6 +102,47 @@ def manageRequest():
                            uniqueTokens = uniqueTokensText,
                            commonWords = myText.getMostCommonCities()
          )
+         
+    elif 'A'  in request.form.values():
+         davalue = [('jed',0.58),('ruh',0.31)]
+         myText = TextAnalyser(userText, language) # new object
+         return render_template('A.html',
+                           title='Dialect Model',
+                           inputTypeText = typeText,
+                           originalText = fragment,
+                           numChars = myText.length(),
+                           numSentences = myText.getSentences(),
+                           numTokens = myText.getTokens(),
+                           uniqueTokens = uniqueTokensText,
+                           commonWords = myText.getMostCommonCountry()
+         )
+         
+    elif 'B'  in request.form.values():
+         myText = TextAnalyser(userText, language) # new object
+         return render_template('B.html',
+                           title='Dialect Model',
+                           inputTypeText = typeText,
+                           originalText = fragment,
+                           numChars = myText.length(),
+                           numSentences = myText.getSentences(),
+                           numTokens = myText.getTokens(),
+                           uniqueTokens = uniqueTokensText,
+                           commonWords = myText.getMostCommonCities()
+         )
+         
+    elif 'C'  in request.form.values():
+         myText = TextAnalyser(userText, language) # new object
+         return render_template('C.html',
+                           title='Dialect Model',
+                           inputTypeText = typeText,
+                           originalText = fragment,
+                           numChars = myText.length(),
+                           numSentences = myText.getSentences(),
+                           numTokens = myText.getTokens(),
+                           uniqueTokens = uniqueTokensText,
+                           commonWords = myText.getMostCommonRegion()
+         )
+
 #
     else:
         return render_template('future.html',
