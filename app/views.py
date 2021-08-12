@@ -110,9 +110,6 @@ def manageRequest():
                            title='Dialect Model',
                            inputTypeText = typeText,
                            originalText = fragment,
-                           numChars = myText.length(),
-                           numSentences = myText.getSentences(),
-                           numTokens = myText.getTokens(),
                            uniqueTokens = uniqueTokensText,
                            commonWords = myText.getMostCommonCountry()
          )
