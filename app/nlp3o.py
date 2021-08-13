@@ -54,7 +54,7 @@ class TextAnalyser:
         did = DialectIdentifier.pretrained()
         predictions = did.predict([self.text],output='city')
         sorted_cities = sorted(predictions[0].scores.items(),key=lambda x: x[1],reverse=True)
-        
+        sorted_cities = [(city,round(score*100,3)) for city, score in sorted_cities]
         return sorted_cities[:n]
     def getMostCommonRegion(self, n=5):
         """ get the n most common words in the text;

@@ -100,7 +100,9 @@ def manageRequest():
                            numSentences = myText.getSentences(),
                            numTokens = myText.getTokens(),
                            uniqueTokens = uniqueTokensText,
-                           commonWords = myText.getMostCommonCities()
+                           topCities = myText.getMostCommonCities(),
+                           topRegions = myText.getMostCommonRegion(),
+                           topCountries = myText.getMostCommonCountry
          )
          
     elif 'A'  in request.form.values():
