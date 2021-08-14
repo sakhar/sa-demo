@@ -102,7 +102,7 @@ def manageRequest():
                            uniqueTokens = uniqueTokensText,
                            topCities = myText.getMostCommonCities(),
                            topRegions = myText.getMostCommonRegion(),
-                           topCountries = myText.getMostCommonCountry
+                           topCountries = myText.getMostCommonCountry()
          )
          
     elif 'A'  in request.form.values():
