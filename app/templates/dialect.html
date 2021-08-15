@@ -42,8 +42,9 @@ START
 </div>
 
 <div id="region" class="tabcontent">
-  <svg class="chart" id="chart-region"></svg>
   <h3>Regions</h3>
+  <svg class="chart" id="chart-region"></svg>
+  
   
 </div>
 <div id="country" class="tabcontent">
@@ -174,6 +175,7 @@ END
   updateData('city');
   updateData('country');
   updateData('region');
+  openCity(event, 'city');
   </script>
   <form action="" method="post" name="inputText">
     <fieldset  style = "margin-left: 250px; width:700px;left:400px; top:10px; bottom: -500px;">
