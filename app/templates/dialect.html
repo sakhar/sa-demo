@@ -25,9 +25,37 @@
     <p>Unique tokens: <span class="stats"> {{ uniqueTokens }} </span></p>
     <p>Lexical diversity: each token in average is repeated {{ numTokens / uniqueTokens }} times</p>
     <p>Top 10 words: {{ topCities }} </p>
+<!--
+START
+-->
       <svg class="chart" id="chart-city"></svg>
       <svg class="chart" id="chart-region"></svg>
       <svg class="chart" id="chart-country"></svg>
+
+<!-- Tab links -->
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'London')">London</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+</div>
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+<!--
+END
+-->
   <script>
     
   function openTab(evt, cityName) {
