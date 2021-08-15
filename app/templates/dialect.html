@@ -36,18 +36,18 @@
 <!--
 START
 -->
-<div id="London" class="tabcontent">
+<div id="city" class="tabcontent">
   <h3>London</h3>
   <svg class="chart" id="chart-city"></svg>
   <p>London is the capital city of England.</p>
 </div>
 
-<div id="Paris" class="tabcontent">
+<div id="region" class="tabcontent">
   <svg class="chart" id="chart-region"></svg>
   <h3>Paris</h3>
   <p>Paris is the capital of France.</p> 
 </div>
-<div id="Tokyo" class="tabcontent">
+<div id="country" class="tabcontent">
   <h3>Tokyo</h3>
   <svg class="chart" id="chart-country"></svg>
   <p>Tokyo is the capital of Japan.</p>
@@ -55,9 +55,9 @@ START
 
 <!-- Tab links -->
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'London')">London</button>
-  <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
-  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+  <button class="tablinks" onclick="openCity(event, 'city')">London</button>
+  <button class="tablinks" onclick="openCity(event, 'country')">Paris</button>
+  <button class="tablinks" onclick="openCity(event, 'region')">Tokyo</button>
 </div>
 <script>
 function openCity(evt, cityName) {
@@ -123,7 +123,7 @@ END
           // prepare for tooltip
     var div = d3.select("body").append("div").attr("class", "toolTip");
           // prepare chart
-    var chart = d3.select(".chart")
+    var chart = d3.select("#chart-"+category)
           .attr("width", w)
           .attr("height", h);
 
@@ -173,6 +173,8 @@ END
         }
   }
   updateData('city');
+  updateData('country');
+  updateData('region');
   </script>
   <form action="" method="post" name="inputText">
     <fieldset  style = "margin-left: 250px; width:700px;left:400px; top:10px; bottom: -500px;">
