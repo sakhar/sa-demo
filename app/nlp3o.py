@@ -63,7 +63,7 @@ class TextAnalyser:
         did = DialectIdentifier.pretrained()
         predictions = did.predict([self.text],output='region')
         sorted_region = sorted(predictions[0].scores.items(),key=lambda x: x[1],reverse=True)
-        
+        sorted_region = [(region,round(score*100,3)) for region, score in sorted_region]
         return sorted_region[:n]
 
     def getMostCommonCountry(self, n=5):
@@ -73,7 +73,7 @@ class TextAnalyser:
         did = DialectIdentifier.pretrained()
         predictions = did.predict([self.text],output='country')
         sorted_country = sorted(predictions[0].scores.items(),key=lambda x: x[1],reverse=True)
-        
+        sorted_country = [(country,round(score*100,3)) for country, score in sorted_country]
         return sorted_country[:n]
 
     def length(self):
