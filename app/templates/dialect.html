@@ -177,18 +177,16 @@ END
   updateData('region');
   openCity(event, 'city');
   </script>
-  <form action="" method="post" name="inputText">
+
     <fieldset  style = "margin-left: 250px; width:700px;left:400px; top:10px; bottom: -500px;">
  <legend>الرسم البياني بناء على:</legend>
-   <nav>
-     <button class="big-btn" name="action-button" type="submit" value="A"> المدن العربية</button>
-     <button class="big-btn" name="action-button" type="submit" value="B">الدول العربية</button>
-     <button class="big-btn" name="action-button" type="submit" value="C" >المناطق العربية</button>
+   <nav>     
+     <button class="big-btn" name="action-button" onclick="openCity(event, 'city')"> المدن العربية</button>
+     <button class="big-btn" name="action-button" onclick="openCity(event, 'country')">الدول العربية</button>
+     <button class="big-btn" name="action-button" onclick="openCity(event, 'region')" >المناطق العربية</button>
     
    </nav>
 
      </fieldset>
-
-   </form>
 
 {% endblock %}
