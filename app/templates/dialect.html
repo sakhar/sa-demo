@@ -37,27 +37,26 @@
 START
 -->
 <div id="city" class="tabcontent">
-  <h3>London</h3>
+  <h3>Cities</h3>
   <svg class="chart" id="chart-city"></svg>
-  <p>London is the capital city of England.</p>
 </div>
 
 <div id="region" class="tabcontent">
   <svg class="chart" id="chart-region"></svg>
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p> 
+  <h3>Regions</h3>
+  
 </div>
 <div id="country" class="tabcontent">
-  <h3>Tokyo</h3>
+  <h3>Countries</h3>
   <svg class="chart" id="chart-country"></svg>
-  <p>Tokyo is the capital of Japan.</p>
+
 </div>
 
 <!-- Tab links -->
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'city')">London</button>
-  <button class="tablinks" onclick="openCity(event, 'country')">Paris</button>
-  <button class="tablinks" onclick="openCity(event, 'region')">Tokyo</button>
+  <button class="tablinks" onclick="openCity(event, 'city')">City</button>
+  <button class="tablinks" onclick="openCity(event, 'country')">Country</button>
+  <button class="tablinks" onclick="openCity(event, 'region')">Region</button>
 </div>
 <script>
 function openCity(evt, cityName) {
