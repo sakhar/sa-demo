@@ -1,7 +1,15 @@
 <!-- extend from base layout -->
 {% extends "base.html" %}
 {% block head %}
-
+<style>
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+</style>
   <script src="../static/d3/d3.js"></script>
 {% endblock %}
 
@@ -28,21 +36,20 @@
 <!--
 START
 -->
-      <svg class="chart" id="chart-city"></svg>
-      <svg class="chart" id="chart-region"></svg>
-      <svg class="chart" id="chart-country"></svg>
 <div id="London" class="tabcontent">
   <h3>London</h3>
+  <svg class="chart" id="chart-city"></svg>
   <p>London is the capital city of England.</p>
 </div>
 
 <div id="Paris" class="tabcontent">
+  <svg class="chart" id="chart-region"></svg>
   <h3>Paris</h3>
   <p>Paris is the capital of France.</p> 
 </div>
-
 <div id="Tokyo" class="tabcontent">
   <h3>Tokyo</h3>
+  <svg class="chart" id="chart-country"></svg>
   <p>Tokyo is the capital of Japan.</p>
 </div>
 
