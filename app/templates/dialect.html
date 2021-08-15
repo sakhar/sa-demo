@@ -109,12 +109,12 @@ END
       {% endfor %}
     }
     else if (category=='country'){
-      {% for word, n in topRegions %}
+      {% for word, n in topCountries %}
         data.push({name: "{{ word }}", value: {{n }} });
       {% endfor %}
     }
     else {
-      {% for word, n in topCountries %}
+      {% for word, n in topRegions %}
         data.push({name: "{{ word }}", value: {{n }} });
       {% endfor %}
     }
